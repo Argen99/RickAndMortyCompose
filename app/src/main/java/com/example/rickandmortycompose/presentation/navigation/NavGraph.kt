@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.rickandmortycompose.presentation.screens.characters.CharacterListScreen
 import com.example.rickandmortycompose.presentation.screens.episodes.EpisodesListScreen
+import com.example.rickandmortycompose.presentation.screens.location.LocationListScreen
 
 @Composable
 fun NavGraph(
@@ -25,7 +26,7 @@ fun NavGraph(
             EpisodesListScreen()
         }
         composable(route = Locations.LOCATIONlIST) {
-
+            LocationListScreen()
         }
     }
 }

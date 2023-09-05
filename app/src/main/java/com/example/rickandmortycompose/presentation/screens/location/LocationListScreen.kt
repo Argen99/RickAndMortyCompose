@@ -1,5 +1,4 @@
-
-package com.example.rickandmortycompose.presentation.screens.episodes
+package com.example.rickandmortycompose.presentation.screens.location
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,16 +12,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EpisodesListScreen() {
-
-    val viewModel = getViewModel<EpisodesViewModel>()
-    val pagingItems = viewModel.episodesState.collectAsLazyPagingItems()
+fun LocationListScreen() {
+    val viewModel = getViewModel<LocationViewModel>()
+    val pagingItems = viewModel.locationState.collectAsLazyPagingItems()
 
     LazyColumn {
         items(pagingItems.itemCount) { index ->
@@ -47,9 +47,24 @@ fun EpisodesListScreen() {
                             ),
                         verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
-                        Text(text = item.name)
-                        Text(text = item.episode)
-                        Text(text = item.airDate)
+                        Text(
+                            text = item.name,
+                            style = TextStyle(
+                                fontFamily = FontFamily.SansSerif
+                            )
+                        )
+                        Text(
+                            text = item.dimension,
+                            style = TextStyle(
+                                fontFamily = FontFamily.SansSerif
+                            )
+                        )
+                        Text(
+                            text = item.type,
+                            style = TextStyle(
+                                fontFamily = FontFamily.SansSerif
+                            )
+                        )
                     }
                 }
             }

@@ -3,6 +3,7 @@ package com.example.data.remote.api_service
 import com.example.data.remote.model.CharacterDto
 import com.example.data.remote.model.BasePagingResponse
 import com.example.data.remote.model.EpisodeDto
+import com.example.data.remote.model.LocationDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -27,5 +28,5 @@ interface RickAndMortyApiService {
     suspend fun getAllLocations(
         @Query("page") page: Int?,
 //        @Query("name") name: String?
-    )
+    ): BasePagingResponse<LocationDto>
 }
